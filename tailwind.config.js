@@ -26,11 +26,11 @@ export default {
             },
         },
         fontSize: {
-            sm: "1.2rem",
-            base: "1.4rem",
-            lg: "2.4rem",
-            xl: "4rem",
-            "2xl": "7rem",
+            sm: "0.75rem",
+            base: "0.875rem",
+            lg: "1.5rem",
+            xl: "2.5rem",
+            "2xl": "4.375rem",
         },
         letterSpacing: {
             normal: '0',
