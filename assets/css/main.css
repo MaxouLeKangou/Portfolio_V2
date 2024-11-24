@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-    font-size: 10px;
     font-family: "Poppins", sans-serif;
     
-    @apply bg-background-100 text-white-100;
+    @apply bg-background-100 text-white-100 mx-5;
 }
