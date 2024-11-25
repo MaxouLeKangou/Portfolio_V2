@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type HistoryDocumentDataSlicesSlice = HistorySlice;
+
+/**
+ * Content for history documents
+ */
+interface HistoryDocumentData {
+  /**
+   * Slice Zone field in *history*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HistoryDocumentDataSlicesSlice> /**
+   * Meta Title field in *history*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: history.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *history*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: history.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *history*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * history document from Prismic
+ *
+ * - **API ID**: `history`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HistoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HistoryDocumentData>,
+    "history",
+    Lang
+  >;
+
 type SkillsDocumentDataSlicesSlice = SkillsSlice;
 
 /**
@@ -69,7 +134,107 @@ export type SkillsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = SkillsDocument;
+export type AllDocumentTypes = HistoryDocument | SkillsDocument;
+
+/**
+ * Item in *History → Default → Primary → History*
+ */
+export interface HistorySliceDefaultPrimaryHistoryItem {
+  /**
+   * icon field in *History → Default → Primary → History*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.default.primary.history[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * role field in *History → Default → Primary → History*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: your role in company
+   * - **API ID Path**: history.default.primary.history[].role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * company field in *History → Default → Primary → History*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: name of company
+   * - **API ID Path**: history.default.primary.history[].company
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company: prismic.KeyTextField;
+
+  /**
+   * start_job field in *History → Default → Primary → History*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: date of starting job
+   * - **API ID Path**: history.default.primary.history[].start_job
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  start_job: prismic.DateField;
+
+  /**
+   * leave_job field in *History → Default → Primary → History*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: date of leaving job
+   * - **API ID Path**: history.default.primary.history[].leave_job
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  leave_job: prismic.DateField;
+}
+
+/**
+ * Primary content in *History → Default → Primary*
+ */
+export interface HistorySliceDefaultPrimary {
+  /**
+   * History field in *History → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.default.primary.history[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  history: prismic.GroupField<Simplify<HistorySliceDefaultPrimaryHistoryItem>>;
+}
+
+/**
+ * Default variation for History Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HistorySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HistorySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *History*
+ */
+type HistorySliceVariation = HistorySliceDefault;
+
+/**
+ * History Shared Slice
+ *
+ * - **API ID**: `history`
+ * - **Description**: History
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HistorySlice = prismic.SharedSlice<
+  "history",
+  HistorySliceVariation
+>;
 
 /**
  * Item in *Skills → Default → Primary → skills*
@@ -169,10 +334,18 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HistoryDocument,
+      HistoryDocumentData,
+      HistoryDocumentDataSlicesSlice,
       SkillsDocument,
       SkillsDocumentData,
       SkillsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      HistorySlice,
+      HistorySliceDefaultPrimaryHistoryItem,
+      HistorySliceDefaultPrimary,
+      HistorySliceVariation,
+      HistorySliceDefault,
       SkillsSlice,
       SkillsSliceDefaultPrimarySkillsItem,
       SkillsSliceDefaultPrimary,
