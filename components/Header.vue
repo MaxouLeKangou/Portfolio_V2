@@ -1,5 +1,5 @@
 <template>
-    <header class="w-full mt-5 flex items-center justify-between">
+    <header class="w-full h-10 mt-5 flex items-center justify-between">
 		<p class="w-10 h-10">
 			<component
 				:is="route.path === '/' ? 'span' : nuxtlink"

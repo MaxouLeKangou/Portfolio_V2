@@ -37,6 +37,9 @@ export default {
             first: '0.125rem',
             second: '0.313rem',
         },
+        lineHeight: {
+            'main': '3.75rem',
+        },
 
         extend: {},
     },
