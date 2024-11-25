@@ -9,7 +9,7 @@
 					</NuxtLink>
 				</p>
 				<button @click="closeMenu">
-					<p class="text-base text-white-300">menuVisible = <span class="animate-pulse text-white-200 font-medium">true</span></p>
+					<p class="text-base text-white-300">menuVisible = <span class="animate-pulse text-white-100 font-medium">true</span></p>
 				</button>
 			</div>
 			<div class="my-16 flex flex-col gap-3">
