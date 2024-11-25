@@ -1,4 +1,7 @@
 import { apiEndpoint, repositoryName } from "./slicemachine.config.json";
+
+const siteUrl = 'https://portfolio.bessarion.fr';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     future: {
@@ -26,8 +29,14 @@ export default defineNuxtConfig({
       "@nuxt/fonts",
     ],
 
+    runtimeConfig: {
+        public: {
+            siteUrl: siteUrl,
+        },
+    },
+
     site: { 
-        url: 'https://iammax.bessarion.fr', 
+        url: siteUrl, 
         name: 'I am Max - Frontend Developer', 
     }, 
 
