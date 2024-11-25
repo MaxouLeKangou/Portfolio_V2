@@ -16,6 +16,7 @@
     "@nuxtjs/robots": "^4.1.11",
     "@nuxtjs/sitemap": "^6.1.5",
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "number-to-words": "^1.2.4",
     "nuxt": "^3.14.1592",
     "vue": "latest",
     "vue-router": "latest"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@nuxtjs/prismic": "^3.4.3",
     "@slicemachine/adapter-nuxt": "^0.3.58",
+    "@types/number-to-words": "^1.2.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "slice-machine-ui": "^2.10.4",
