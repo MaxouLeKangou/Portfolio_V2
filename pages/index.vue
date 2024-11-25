@@ -9,6 +9,7 @@
 
         <section id="experience" class="flex flex-col gap-24">
             <BlocContent :data="content?.experience"/>
+            <HomeHistory/>
         </section>
     </main>
 </template>
