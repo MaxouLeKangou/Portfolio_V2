@@ -5,7 +5,7 @@
 			type="text"
 			:value="modelValue"
 			@input="$emit('update:modelValue', $event?.target?.value)"
-			class="animate-pulse max-w-full w-32 text-white-200 bg-background-100 focus:outline-0"
+			class="animate-pulse max-w-full w-32 text-white-100 bg-background-100 focus:outline-0"
 		/>
 		<span>"</span>
 	</p>
