@@ -1,6 +1,7 @@
 <template>
-	<section>
-		<SliceZone wrapper="main" :slices="document?.data?.slices ?? []" :components="components"/>
+	<section class="flex flex-col gap-5">
+		<h2 class="text-center">EXPERTISES</h2>
+		<SliceZone wrapper="div" :slices="document?.data?.slices ?? []" :components="components"/>
 	</section>
 </template>
 

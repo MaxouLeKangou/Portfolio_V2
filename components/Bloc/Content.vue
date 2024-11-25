@@ -1,7 +1,7 @@
 <template>
 	<section class="flex flex-col gap-10">
 		<div class="flex flex-col gap-5 font-semibold">
-			<h2 class="text-base uppercase tracking-second">{{ title }}</h2>
+			<h2>{{ title }}</h2>
 			<p class="text-lg leading-current">
 				<span>{{ beforeWord }}</span>
 				<span class="text-primary">{{ currentWord }}</span>

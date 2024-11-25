@@ -7,3 +7,7 @@ html {
     
     @apply bg-background-100 text-white-100 mx-5;
 }
+
+h2 {
+    @apply text-base uppercase tracking-second font-semibold
+}
