@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     fonts: {
         provider: 'google',
         families: [
-            { name: 'Poppins', provider: 'google' },
+            { name: 'Poppins', provider: 'google', weights: [300, 400, 500, 600, 700, 800, 900] },
             { name: 'Anton', provider: 'google' }
         ]
     },
