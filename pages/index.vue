@@ -6,6 +6,10 @@
             <BlocContent :data="content?.about"/>
             <HomeSkills/>
         </section>
+
+        <section id="experience" class="flex flex-col gap-24">
+            <BlocContent :data="content?.experience"/>
+        </section>
     </main>
 </template>
 
@@ -33,6 +37,12 @@ const content = ref({
         content: `Hey! I’m Maxime, ${birthday()} years old {job}. I make beautiful websites that will help achieve your goals!`,
         letTitle: 'job',
         letValue: 'front-end developer'
+    },
+    experience: {
+        title: 'Experience',
+        content: `Now, nearly {years} of experience in designing and envisioning projects. Currently only within my education :(`,
+        letTitle: 'time',
+        letValue: 'two years'
     }
 })
 </script>
