@@ -39,6 +39,7 @@ export default {
         },
         lineHeight: {
             'main': '3.75rem',
+            'current': '1.875rem'
         },
 
         extend: {},
