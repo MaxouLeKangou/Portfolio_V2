@@ -34,8 +34,8 @@ export default {
         },
         letterSpacing: {
             normal: '0',
-            first: '.2rem',
-            second: '.5rem',
+            first: '0.125rem',
+            second: '0.313rem',
         },
 
         extend: {},
