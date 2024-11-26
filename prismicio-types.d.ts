@@ -304,6 +304,83 @@ export type AllDocumentTypes =
   | WorkDocument;
 
 /**
+ * Item in *Footer → Default → Primary → socials*
+ */
+export interface FooterSliceDefaultPrimarySocialsItem {
+  /**
+   * icon field in *Footer → Default → Primary → socials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.socials[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * link field in *Footer → Default → Primary → socials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: link to social network
+   * - **API ID Path**: footer.default.primary.socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * email field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: mail to contact
+   * - **API ID Path**: footer.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * socials field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.socials[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  socials: prismic.GroupField<Simplify<FooterSliceDefaultPrimarySocialsItem>>;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
  * Item in *History → Default → Primary → History*
  */
 export interface HistorySliceDefaultPrimaryHistoryItem {
@@ -515,6 +592,11 @@ declare module "@prismicio/client" {
       WorkDocumentDataTagsItem,
       WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
+      FooterSlice,
+      FooterSliceDefaultPrimarySocialsItem,
+      FooterSliceDefaultPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
       HistorySlice,
       HistorySliceDefaultPrimaryHistoryItem,
       HistorySliceDefaultPrimary,
