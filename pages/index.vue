@@ -11,6 +11,10 @@
             <BlocContent :data="content?.experience"/>
             <HomeHistory/>
         </section>
+
+        <section id="work" class="flex flex-col gap-24">
+            <HomeWork/>
+        </section>
     </main>
 </template>
 

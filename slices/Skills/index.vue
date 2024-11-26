@@ -16,7 +16,7 @@ defineProps(
         <li v-for="skill of slice.primary.skills" class="relative flex flex-col justify-center gap-4 items-center h-28 w-full bg-background-200 rounded-xl">
             <NuxtImg :src="skill.icon.url ?? ''" class="w-9 h-9"/>
             <h4 class="uppercase text-sm tracking-first">
-                <nuxt-link :to="skill.link ?? '#'" class="before:content-[''] before:absolute before:inset-0 before:w-full before:h-full">{{ skill.name }}</nuxt-link>
+                <nuxt-link :to="skill.link ?? '#'" class="before:content-[''] before:absolute before:inset-0">{{ skill.name }}</nuxt-link>
             </h4>
         </li>
     </ul>
