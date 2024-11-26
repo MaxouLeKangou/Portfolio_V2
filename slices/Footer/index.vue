@@ -14,7 +14,7 @@ defineProps(
 <template>
     <div :data-slice-type="slice.slice_type" :data-slice-variation="slice.variation" class="pt-24 pb-10 text-center">
         <div class="flex flex-col gap-5 uppercase">
-            <p class="text-base tracking-second">CLICK ON MY MAIL TO CONTACT ME!</p>
+            <p class="text-base font-semibold tracking-second">CLICK ON MY MAIL TO CONTACT ME!</p>
             <p class="font-anton text-lg text-primary">
                 <NuxtLink :to="'mailto:' + (slice.primary.email || '')">{{ slice?.primary?.email }}</NuxtLink>
             </p>
