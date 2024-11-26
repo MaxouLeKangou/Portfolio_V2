@@ -1,0 +1,53 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "email": {
+          "type": "Text",
+          "config": {
+            "label": "email",
+            "placeholder": "mail to contact"
+          }
+        },
+        "socials": {
+          "type": "Group",
+          "config": {
+            "label": "socials",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "icon",
+                  "constraint": {
+                    "width": 20,
+                    "height": 20
+                  },
+                  "thumbnails": []
+                }
+              },
+              "link": {
+                "type": "Text",
+                "config": {
+                  "label": "link",
+                  "placeholder": "link to social network"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
