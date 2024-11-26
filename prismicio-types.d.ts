@@ -134,7 +134,105 @@ export type SkillsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HistoryDocument | SkillsDocument;
+/**
+ * Item in *work → tags*
+ */
+export interface WorkDocumentDataTagsItem {
+  /**
+   * tag field in *work → tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: name of tag for work
+   * - **API ID Path**: work.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+}
+
+type WorkDocumentDataSlicesSlice = never;
+
+/**
+ * Content for work documents
+ */
+interface WorkDocumentData {
+  /**
+   * name field in *work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: name of the work
+   * - **API ID Path**: work.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * tags field in *work*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tags: prismic.GroupField<Simplify<WorkDocumentDataTagsItem>>;
+
+  /**
+   * Slice Zone field in *work*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<WorkDocumentDataSlicesSlice> /**
+   * Meta Title field in *work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: work.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *work*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: work.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *work*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * work document from Prismic
+ *
+ * - **API ID**: `work`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<WorkDocumentData>, "work", Lang>;
+
+export type AllDocumentTypes = HistoryDocument | SkillsDocument | WorkDocument;
 
 /**
  * Item in *History → Default → Primary → History*
@@ -340,6 +438,10 @@ declare module "@prismicio/client" {
       SkillsDocument,
       SkillsDocumentData,
       SkillsDocumentDataSlicesSlice,
+      WorkDocument,
+      WorkDocumentData,
+      WorkDocumentDataTagsItem,
+      WorkDocumentDataSlicesSlice,
       AllDocumentTypes,
       HistorySlice,
       HistorySliceDefaultPrimaryHistoryItem,
