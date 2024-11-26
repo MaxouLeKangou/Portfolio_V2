@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type FooterDocumentDataSlicesSlice = never;
+
+/**
+ * Content for footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice> /**
+   * Meta Title field in *footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: footer.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: footer.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 type HistoryDocumentDataSlicesSlice = HistorySlice;
 
 /**
@@ -232,7 +297,11 @@ interface WorkDocumentData {
 export type WorkDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<WorkDocumentData>, "work", Lang>;
 
-export type AllDocumentTypes = HistoryDocument | SkillsDocument | WorkDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | HistoryDocument
+  | SkillsDocument
+  | WorkDocument;
 
 /**
  * Item in *History → Default → Primary → History*
@@ -432,6 +501,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HistoryDocument,
       HistoryDocumentData,
       HistoryDocumentDataSlicesSlice,
