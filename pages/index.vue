@@ -15,6 +15,8 @@
         <section id="work" class="flex flex-col gap-24">
             <HomeWork/>
         </section>
+
+        <Footer/>
     </main>
 </template>
 
