@@ -1,6 +1,6 @@
 <template>
 	<button @click="closeMenu" class="fixed z-40 w-screen inset-0 bg-[#000000]/50 transition-all duration-300" :class="isVisible ? 'translate-x-0' : 'translate-x-full'"></button>
-	<section class="fixed z-50 w-96 max-w-full top-0 right-0 bottom-0 flex flex-col bg-background-100 pt-5 pr-5 pb-10 pl-10 transition-all duration-300" :class="isVisible ? 'translate-x-0' : 'translate-x-full'">
+	<section class="fixed z-50 w-96 max-w-full top-0 right-0 bottom-0 flex flex-col bg-background-100 pt-5 pr-5 pb-10 pl-10 transition-all duration-300 lg:w-[500px]" :class="isVisible ? 'translate-x-0' : 'translate-x-full'">
 		<div class="flex-grow">
 			<div class="flex gap-2 flex-wrap justify-between items-center h-10">
 				<p>
