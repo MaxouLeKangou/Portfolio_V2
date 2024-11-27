@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col gap-40">
+    <main class="container flex flex-col gap-40">
         <HomeHero/>
         
         <section id="about" class="flex flex-col gap-24">
