@@ -47,6 +47,7 @@ export default {
             'main': '3.75rem',
             'current': '1.875rem',
             'desk-main': '7.5rem',
+            'desk-current': '4.57rem',
         },
 
         screens: {
