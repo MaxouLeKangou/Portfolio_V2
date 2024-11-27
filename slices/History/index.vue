@@ -44,7 +44,7 @@ function formatDate(date: string) {
 </template>
 
 <style scoped>
-li::before {
+/* li::before {
     content: '';
     position: absolute;
     width: 100vw;
@@ -53,5 +53,5 @@ li::before {
     bottom: 0;
 
     @apply bg-white-300/25
-}
+} */
 </style>
