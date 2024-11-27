@@ -5,7 +5,7 @@
 html {
     font-family: "Poppins", sans-serif;
     
-    @apply bg-background-100 text-white-100 mx-5;
+    @apply bg-background-100 text-white-100 mx-5 sm:mx-16 md:mx-28;
 }
 
 h2 {

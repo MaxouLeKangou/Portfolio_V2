@@ -32,6 +32,11 @@ export default {
             lg: "1.5rem",
             xl: "2.5rem",
             "2xl": "4.375rem",
+            "desk-sm": "1.125rem",
+            "desk-base": "1.25rem",
+            "desk-lg": "3.75rem",
+            "desk-xl": "5rem",
+            "desk-2xl": "8.75rem",
         },
         letterSpacing: {
             normal: '0',
@@ -41,6 +46,14 @@ export default {
         lineHeight: {
             'main': '3.75rem',
             'current': '1.875rem'
+        },
+
+        screens: {
+            sm: "480px",
+            md: "720px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1440px",
         },
 
         extend: {},
