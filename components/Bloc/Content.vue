@@ -1,8 +1,8 @@
 <template>
-	<section class="flex flex-col gap-10">
+	<section class="flex flex-col gap-10 lg:gap-16">
 		<div class="flex flex-col gap-5 font-semibold">
 			<h2>{{ data?.title }}</h2>
-			<p class="text-lg leading-current">
+			<p class="text-lg leading-current lg:text-desk-lg lg:leading-desk-current">
 				<span>{{ beforeWord }}</span>
 				<span class="text-primary">{{ currentWord }}</span>
 				<span>{{ afterWord }}</span>

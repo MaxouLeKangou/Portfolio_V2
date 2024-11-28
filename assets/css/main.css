@@ -9,5 +9,11 @@ html {
 }
 
 h2 {
-    @apply text-base uppercase tracking-second font-semibold
+    @apply text-base uppercase tracking-second font-semibold lg:text-desk-base;
+}
+
+@layer components {
+    .container {
+        @apply mx-auto xl:max-w-[1440px];
+    }
 }

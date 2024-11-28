@@ -1,13 +1,13 @@
 <template>
-    <main class="flex flex-col gap-40">
+    <main class="container flex flex-col gap-40 lg:gap-80">
         <HomeHero/>
         
-        <section id="about" class="flex flex-col gap-24">
+        <section id="about" class="flex flex-col gap-24 lg:gap-48">
             <BlocContent :data="content?.about"/>
             <HomeSkills/>
         </section>
 
-        <section id="experience" class="flex flex-col gap-24">
+        <section id="experience" class="flex flex-col gap-24 lg:gap-48">
             <BlocContent :data="content?.experience"/>
             <HomeHistory/>
         </section>

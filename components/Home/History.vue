@@ -1,6 +1,6 @@
 <template>
 	<section class="flex flex-col gap-5">
-		<h2>HISTORY</h2>
+		<h2 class="md:text-center">HISTORY</h2>
 		<SliceZone wrapper="div" :slices="document?.data?.slices ?? []" :components="components"/>
 	</section>
 </template>
