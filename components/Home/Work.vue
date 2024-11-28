@@ -1,14 +1,14 @@
 <template>
-	<section class="flex flex-col gap-14">
+	<section class="flex flex-col gap-14 xl:gap-28">
 		<div class="flex flex-col gap-5">
 			<h2 class="sticky top-[4.375rem] text-center">RECENTLY WORK</h2>
-			<div class="flex flex-col gap-[25vh]">
-				<NuxtLink :to="`/works/${work.uid}`" v-for="work of documents" :key="work.uid" class="sticky top-28 w-full aspect-[335/490] max-h-[70vh]">
-					<div class="flex flex-col gap-1.5 absolute bottom-5 left-5">
-						<h3 class="text-xl font-anton uppercase">{{ work?.data?.name }}</h3>
-						<ul class="flex gap-2 text-sm ">
+			<div class="flex flex-col gap-[50vh]">
+				<NuxtLink :to="`/works/${work.uid}`" v-for="work of documents" :key="work.uid" class="sticky top-28 w-full aspect-[335/490] max-h-[75vh] md:aspect-video">
+					<div class="flex flex-col gap-1.5 absolute bottom-5 left-5 md:bottom-10 md:left-10 xl:bottom-20 xl:px-20 xl:left-0 xl:flex-row xl:w-full xl:justify-between xl:items-center">
+						<h3 class="text-xl font-anton uppercase xl:text-desk-xl">{{ work?.data?.name }}</h3>
+						<ul class="flex gap-2 text-sm xl:text-desk-sm">
 							<li v-for="tag of work?.data?.tags">
-								<p class="py-1.5 px-5 bg-background-100/20 rounded-full backdrop-blur-sm">{{ tag.tag }}</p>
+								<p class="py-1.5 px-5 bg-background-100/20 rounded-full backdrop-blur-md xl:py-2 xl:px-8">{{ tag.tag }}</p>
 							</li>
 						</ul>
 					</div>
@@ -18,9 +18,9 @@
 		</div>
 
 		<p v-if="isClient" class="flex justify-center">
-			<NuxtLink to="/works" class="link-container bg-background-200 rounded-full flex gap-3 items-center py-3.5 px-5">
-				<div class="circle w-5 h-5 bg-primary rounded-full"></div>
-				<span class="text-base uppercase">VIEW ALL WORKS</span>
+			<NuxtLink to="/works" class="link-container bg-background-200 rounded-full flex gap-3 items-center py-3.5 px-5 xl:py-4 xl:px-8">
+				<div class="circle w-5 h-5 bg-primary rounded-full xl:w-7 xl:h-7"></div>
+				<span class="text-base uppercase xl:text-desk-base">VIEW ALL WORKS</span>
 			</NuxtLink>
 		</p>
 	</section>
