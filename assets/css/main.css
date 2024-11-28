@@ -14,6 +14,6 @@ h2 {
 
 @layer components {
     .container {
-        @apply mx-auto max-w-[1440px];
+        @apply mx-auto xl:max-w-[1440px];
     }
 }
