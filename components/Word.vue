@@ -1,7 +1,9 @@
 <template>
 	<p class="text-base text-white-300 lg:text-desk-base">
 		<span>let {{ title }} = "</span>
+		<label :for="title" class="sr-only">Enter a custom word</label>
 		<input
+			:id="title"
 			type="text"
 			:value="modelValue"
 			@input="$emit('update:modelValue', $event?.target?.value)"

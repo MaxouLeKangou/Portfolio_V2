@@ -12,7 +12,7 @@
 							</li>
 						</ul>
 					</div>
-					<NuxtImg :src="work?.data?.meta_image?.url || ''" class="w-full h-full object-cover rounded-[1.25rem]"/>
+					<NuxtImg :src="work?.data?.meta_image?.url || ''" alt="" class="w-full h-full object-cover rounded-[1.25rem]"/>
 				</NuxtLink>
 			</div>
 		</div>

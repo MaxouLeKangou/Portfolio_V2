@@ -5,7 +5,7 @@
 				:is="route.path === '/' ? 'span' : nuxtlink"
 				:to="route.path === '/' ? undefined : '/'"
 			>
-				<NuxtImg src="/img/logo.webp" class="rounded-full"/>
+				<NuxtImg src="/img/logo.webp" class="rounded-full" alt="Maxime LEGRAND portfolio"/>
 			</component>
 		</p>
 
