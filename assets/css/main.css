@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+  
+/** Scrollbar Styling **/
+body::-webkit-scrollbar {
+    width: 0.625rem;
+}
+body::-webkit-scrollbar-track {
+    border-radius: 2rem;
+    @apply bg-background-200;
+}
+body::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    @apply bg-primary;
+}
+
+
+
 html {
     font-family: "Poppins", sans-serif;
     
@@ -15,5 +31,25 @@ h2 {
 @layer components {
     .container {
         @apply mx-auto xl:max-w-[1440px];
+    }
+
+    .animation a {
+        position: relative;
+    
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0px;
+            height: 1px;
+            border-radius: 2rem;
+            transition: width 0.3s;
+    
+            @apply bg-primary;
+        }
+    
+        &:hover:before {
+            width: 100%;
+        }
     }
 }
