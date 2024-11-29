@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { toWords } from "number-to-words";
+import numberToWords from "number-to-words";
 
 const birthday = () => {
     const today = new Date();
@@ -35,7 +35,7 @@ const birthday = () => {
         age--;
     }
 
-    return toWords(age);
+    return numberToWords.toWords(age);
 };
 
 const content = ref({
